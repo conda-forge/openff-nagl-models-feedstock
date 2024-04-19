@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5f1d71864ae9a10dae29ad3daad9f3d7a453d10daf56cdd689deb5ce9993c84b
+  url: https://pypi.io/packages/source/{{ name[0] }}/openff_nagl_models/openff_nagl_models-{{ version }}.tar.gz
+  sha256: 29dd5c9e6f6a2977dd0e29da7a10af3843a07cc54e2c9ebbf30b4ff6a7e637f4
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
