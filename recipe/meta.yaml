@@ -10,27 +10,44 @@ source:
   sha256: 62a157513a668bf8200932f59b1a5608c08371b63a4c8293ba46b2587385144b
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 1
-  noarch: python
+  number: 2
 
-requirements:
-  host:
-    - python >=3.9
-    - pip
-    - versioneer-518
-    - setuptools
-  run:
-    - python >=3.9
-    - importlib_resources
-  run_constrained:
-    - openff-nagl >=0.4.0
+outputs:
+  - name: openff-nagl-models
+    files:
+      exclude:
+        - openff/nagl_models/models/**/*.py
+    script: build_base.sh
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python >=3.10
+        - pip
+        - versioneer-518
+        - setuptools
+      run:
+        - python >=3.10
+        - importlib_resources
+        - platformdirs
+      run_constrained:
+        - openff-nagl >=0.4.0
+    test:
+      imports:
+        - openff.nagl_models
+      requires:
+        - pip
 
-test:
-  imports:
-    - openff.nagl_models
-  requires:
-    - pip
+  - name: openff-nagl-models-all
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python >=3.10
+      run:
+        - python >=3.10
+        - {{ pin_subpackage('openff-nagl-base', exact=True) }}
+
 
 about:
   home: https://github.com/openforcefield/openff-nagl-models
