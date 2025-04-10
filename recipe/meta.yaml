@@ -1,3 +1,4 @@
+{% set python_min = "3.10"}
 {% set name = "openff-nagl-models" %}
 {% set version = "0.3.0" %}
 
@@ -22,12 +23,12 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.10
+        - python {{ python_min }}
         - pip
         - versioneer-518
         - setuptools
       run:
-        - python >=3.10
+        - python >={{ python_min }}
         - importlib_resources
         - platformdirs
       run_constrained:
@@ -43,10 +44,10 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.10
+        - python {{ python_min }}
       run:
-        - python >=3.10
-        - {{ pin_subpackage('openff-nagl-base', exact=True) }}
+        - python >={{ python_min }}
+        - {{ pin_subpackage('openff-nagl-models-base', exact=True) }}
 
 
 about:
