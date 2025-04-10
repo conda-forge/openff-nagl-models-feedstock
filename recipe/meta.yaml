@@ -1,3 +1,4 @@
+{% set python_min = "3.10"}
 {% set name = "openff-nagl-models" %}
 {% set version = "0.3.0" %}
 
@@ -6,31 +7,48 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
   sha256: 62a157513a668bf8200932f59b1a5608c08371b63a4c8293ba46b2587385144b
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 1
-  noarch: python
+  number: 2
 
-requirements:
-  host:
-    - python >=3.9
-    - pip
-    - versioneer-518
-    - setuptools
-  run:
-    - python >=3.9
-    - importlib_resources
-  run_constrained:
-    - openff-nagl >=0.4.0
+outputs:
+  - name: openff-nagl-models
+    files:
+      exclude:
+        - openff/nagl_models/models/**/*.py
+    script: build_base.sh
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+        - pip
+        - versioneer-518
+        - setuptools
+      run:
+        - python >={{ python_min }}
+        - importlib_resources
+        - platformdirs
+      run_constrained:
+        - openff-nagl >=0.4.0
+    test:
+      imports:
+        - openff.nagl_models
+      requires:
+        - pip
 
-test:
-  imports:
-    - openff.nagl_models
-  requires:
-    - pip
+  - name: openff-nagl-models-all
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage('openff-nagl-models-base', exact=True) }}
+
 
 about:
   home: https://github.com/openforcefield/openff-nagl-models
