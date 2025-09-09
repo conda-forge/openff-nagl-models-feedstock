@@ -1,5 +1,5 @@
 {% set name = "openff-nagl-models" %}
-{% set version = "0.4.1" %}
+{% set version = "2025.9.0" %}
 {% set python_min = "3.11" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 9942ed31ae05685ed6eda998d5a05e156f680f0d494452e60917a46a31093f20
+  sha256: 136628907cadb4e374b5696c24dca78ec31cd228e8e72ed77ab602329590c2d0
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
