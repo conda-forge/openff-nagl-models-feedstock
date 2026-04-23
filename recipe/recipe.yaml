@@ -1,0 +1,56 @@
+schema_version: 1
+
+context:
+  name: openff-nagl-models
+  version: 2025.9.0
+  python_min: 3.11
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
+  sha256: 136628907cadb4e374b5696c24dca78ec31cd228e8e72ed77ab602329590c2d0
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - versioningit
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - platformdirs
+    - importlib_resources
+    - packaging
+  run_constraints:
+    - openff-nagl >=0.4.0
+
+tests:
+  - python:
+      imports:
+        - openff.nagl_models
+      pip_check: false
+      python_version: ${{ python_min }}.*
+about:
+  summary: NAGL models released by the Open Force Field Initiative
+  description: |
+    This package contains NAGL models released by the Open Force Field Initiative.
+    They are intended to be used by OpenFF NAGL.
+  license: CC-BY-4.0
+  license_file: LICENSE
+  homepage: https://github.com/openforcefield/openff-nagl-models
+  repository: https://github.com/openforcefield/openff-nagl-models
+  documentation: https://github.com/openforcefield/openff-nagl-models
+
+extra:
+  recipe-maintainers:
+    - lilyminium
+    - mattwthompson
+    - j-wags
