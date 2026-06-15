@@ -12,7 +12,7 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   noarch: python
 
 requirements:
@@ -27,7 +27,8 @@ requirements:
     - importlib_resources
     - packaging
   run_constrained:
-    - openff-nagl >=0.4.0
+    - openff-nagl >=0.5.2
+    - openff-toolkit >=0.17
 
 test:
   imports:
