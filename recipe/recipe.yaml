@@ -20,7 +20,7 @@ build:
 
 requirements:
   host:
-    - python 3.11.*
+    - python ${{ python_min }}.*
     - pip
     - versioningit
     - setuptools
@@ -56,4 +56,3 @@ extra:
     - lilyminium
     - mattwthompson
     - j-wags
-
