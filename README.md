@@ -16,7 +16,6 @@ Documentation: https://github.com/openforcefield/openff-nagl-models
 This package contains NAGL models released by the Open Force Field Initiative.
 They are intended to be used by OpenFF NAGL.
 
-
 Current build status
 ====================
 
