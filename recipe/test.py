@@ -1,5 +1,5 @@
 from openff.nagl_models import validate_nagl_model_path, list_available_nagl_models, __version__
-from packging.version import Version
+from packaging.version import Version
 
 
 assert Version(__version__) > Version("2026")
