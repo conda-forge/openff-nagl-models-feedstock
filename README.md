@@ -48,31 +48,73 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `openff-nagl-models` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install openff-nagl-models
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install openff-nagl-models
 ```
 
-It is possible to list all of the versions of `openff-nagl-models` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add openff-nagl-models
+# for installing globally
+pixi global install openff-nagl-models
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `openff-nagl-models` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search openff-nagl-models --channel conda-forge
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search openff-nagl-models --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search openff-nagl-models --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -84,6 +126,8 @@ mamba repoquery whoneeds openff-nagl-models --channel conda-forge
 # List dependencies of `openff-nagl-models`:
 mamba repoquery depends openff-nagl-models --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
