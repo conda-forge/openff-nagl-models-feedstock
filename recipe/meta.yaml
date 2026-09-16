@@ -7,7 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/openforcefield/openff-nagl-models/archive/v{{ version }}.tar.gz
+  url: https://github.com/openforcefield/openff-nagl-models/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 756260b97f83cc2aa45f475d6d9f3a344fd4e961debe5998cbf6e94cbdc19c0a
 
 build:
