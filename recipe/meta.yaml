@@ -1,5 +1,5 @@
 {% set name = "openff-nagl-models" %}
-{% set version = "2026.9.0" %}
+{% set version = "2026.09.0" %}
 {% set python_min = "3.12" %}
 
 package:
