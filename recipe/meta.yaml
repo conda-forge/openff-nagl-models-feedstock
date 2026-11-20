@@ -1,5 +1,5 @@
 {% set name = "openff-nagl-models" %}
-{% set version = "2026.09.0" %}
+{% set version = "2026.09.0.post1" %}
 {% set python_min = "3.12" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/openforcefield/openff-nagl-models/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 756260b97f83cc2aa45f475d6d9f3a344fd4e961debe5998cbf6e94cbdc19c0a
+  sha256: c217ba88a490c2c7769129a3e51443f67a6468718fed22673c397c2d15dc72ec
 
 build:
   script: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }} {{ PYTHON }} -m pip install . -vv --no-deps
@@ -34,7 +34,7 @@ test:
     - openff.nagl_models
   requires:
     - pip
-    - python {{ python_min }} 
+    - python {{ python_min }}
     - packaging
   files:
     - test.py
